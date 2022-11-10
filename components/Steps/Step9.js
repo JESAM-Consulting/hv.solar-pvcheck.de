@@ -181,7 +181,7 @@ export default function Step9() {
   return (
     <div data-show={step == 9 ? true : false} className="step">
       <h1 className="font-visby lg:text-3xl text-xl font-bold lg:max-w-4xl md:max-w-sm">
-      Erhalten Sie jetzt Ihr unverbindliches Angebot von Ihrem Fachberater Name Tim Testverkäufer
+      Erhalten Sie jetzt Ihr unverbindliches Angebot von Ihrem Fachberater Tim Testverkäufer
       </h1>
       <form ref={myForm} onSubmit={handleSubmit(onSubmit)} className="  mt-7">
         <div className="flex lg:space-x-10 lg:flex-row flex-col lg:space-y-0 space-y-4">
