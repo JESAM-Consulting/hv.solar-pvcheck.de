@@ -24,8 +24,10 @@ export default function NavTop() {
     <div>
       <div className="flex lg:px-10 md:px-6 px-6 lg:py-1 bg-white items-center md:min-h-[8vh]">
         
-          <div className="hover:cursor-pointer lg:ml-10  py-3">
-              <img className="lg:w-52 md:w-72 w-24"  src="/images/logo.png"  />
+          <div className="hover:cursor-pointer lg:ml-10  py-3 flex items-center">
+              <img className="lg:w-52 md:w-72 w-24" style={{width:"60px",}}  src="/images/logo.png"  />
+              
+              <h5 className="font-bold text-base  relative " style={{whiteSpace:"nowrap" ,  paddingLeft:"15px"}}>Tim Testverkäufer</h5>
          
       </div>
         <div

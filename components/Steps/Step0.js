@@ -26,7 +26,7 @@ export default function Step0({ openlg, setOpenlg, openM, setOpenM }) {
             onClick={() => {
               setStep(step + 1);
             }}
-            className="bg-green-1 px-5 py-3 rounded-md hover:cursor-pointer text-[#F1C88B] transition-all ease-in-out duration-150 hover:bg-opacity-90 hover:shadow-md hover:shadow-[#ffc792] font-bold lg:text-base text-sm">
+            className="bg-green-1 px-5 py-3 text-white  rounded-md hover:cursor-pointer  transition-all ease-in-out duration-150 hover:bg-opacity-90 hover:shadow-md hover:shadow-[#ffc792] font-bold lg:text-base text-sm">
             GRATIS ANFRAGE STARTEN
           </div>
         </div>
