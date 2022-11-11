@@ -100,15 +100,15 @@ export default function CookieForm({ show, setShow, cancel, setCancel }) {
           wir um Ihre Einwilligung. Sie können diese jederzeit – auch später
           noch ändern oder widerrufen. Mehr erfahren Sie in der{" "}
           <Link href="/datenschutz">
-            <a className="text-[#005039]">Datenschutzerklärung</a>
+            <a className="text-[#ff9b3c]">Datenschutzerklärung</a>
           </Link>
         </p>
         <div className="flex text-sm my-6 space-x-6">
           <Link href="/datenschutz">
-            <a className="text-[#005039] underline">Datenschutz</a>
+            <a className="text-[#ff9b3c] underline">Datenschutz</a>
           </Link>
           <Link href="/impressum">
-            <a className="text-[#005039] underline">Impressum</a>
+            <a className="text-[#ff9b3c] underline">Impressum</a>
           </Link>
         </div>
         <div className="flex md:flex-row flex-col md:space-y-0 space-y-4 md:justify-between">
@@ -159,10 +159,10 @@ export default function CookieForm({ show, setShow, cancel, setCancel }) {
 
             <div className="flex text-sm md:my-6 my-2 space-x-6">
               <Link href="/datenschutz">
-                <a className="text-[#005039] underline">Datenschutz</a>
+                <a className="text-[#ff9b3c] underline">Datenschutz</a>
               </Link>
               <Link href="/impressum">
-                <a className="text-[#005039] underline">Impressum</a>
+                <a className="text-[#ff9b3c] underline">Impressum</a>
               </Link>
             </div>
 
