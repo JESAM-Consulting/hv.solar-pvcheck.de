@@ -1,15 +1,23 @@
 import "../styles/globals.css";
 import "../styles/styles.css";
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppContext from "../Context/AppContext";
 import Script from "next/script";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const [step, setStep] = useState(0);
   const [userData, setUserData] = useState({});
   const [calculatedDataAll, setCalculatedDataAll] = useState([]);
-
+const router=useRouter();
+console.log("router=======",router)
+useEffect(()=>{
+if(router.asPath==="/"){
+  router.push("/1")
+}
+},[router])
+// router = "/1"
   return (
     <AppContext.Provider
       value={{
