@@ -15,8 +15,13 @@ export default function Step9() {
     setIsChecked(!isChecked);
   };
 
-  const { step, setStep, userData, setUserData, calculatedDataAll } =
-    useContext(AppContext);
+  const {
+    step,
+    setStep,
+    userData,
+    setUserData,
+    calculatedDataAll,
+  } = useContext(AppContext);
 
   const {
     register,
@@ -123,7 +128,7 @@ export default function Step9() {
       telefon: data.telefon,
       email: data.email,
       stromverbrauch: parseInt(userData.step2.consumo),
-      interesse_finanzierung: `https://hv.solar-pvcheck.de/${1}` ,
+      interesse_finanzierung: `https://hv.solar-pvcheck.de/${1}`,
       dachform: userData.step3,
       art_heizung: userData.step5,
       // interesse_finanzierung
@@ -131,11 +136,7 @@ export default function Step9() {
       // Bemerkungen: calculatedDa,
     };
     await axios
-      .post(
-        `https://fe‐partnerportal.de/FE_API/lead_api/v1`,
-        sendData,
-        config
-      )
+      .post(`https://fe‐partnerportal.de/FE_API/lead_api/v1`, sendData, config)
       .then((res) => {
         myForm.current.reset();
         setStep(step + 1);
@@ -181,7 +182,8 @@ export default function Step9() {
   return (
     <div data-show={step == 9 ? true : false} className="step">
       <h1 className="font-visby lg:text-3xl text-xl font-bold lg:max-w-4xl md:max-w-sm">
-      Erhalten Sie jetzt Ihr unverbindliches Angebot von Ihrem Fachberater Tim Testverkäufer
+        Erhalten Sie jetzt Ihr unverbindliches Angebot von Ihrem Fachberater Tim
+        Testverkäufer
       </h1>
       <form ref={myForm} onSubmit={handleSubmit(onSubmit)} className="  mt-7">
         <div className="flex lg:space-x-10 lg:flex-row flex-col lg:space-y-0 space-y-4">
@@ -248,8 +250,7 @@ export default function Step9() {
         <div className="flex space-x-4">
           <button
             type="submit"
-            className="mt-4 bg-green-1 items-center justify-center flex outline-none relative lg:px-12 lg:text-base md:px-8 font-visby font-bold py-3 rounded-md hover:cursor-pointer text-[#F1C88B] transition-all ease-in-out duration-150 hover:bg-opacity-90 hover:shadow-md hover:shadow-[#ffc792] md:text-sm md:w-auto text-sm w-full"
-          >
+            className="mt-4 bg-green-1 items-center justify-center flex outline-none relative lg:px-12 lg:text-base md:px-8 font-visby font-bold py-3 rounded-md hover:cursor-pointer text-[#F1C88B] transition-all ease-in-out duration-150 hover:bg-opacity-90 hover:shadow-md hover:shadow-[#ffc792] md:text-sm md:w-auto text-sm w-full">
             <div className="absolute w-full flex justify-center items-center bg-slate-300 z-30">
               <svg
                 className={`animate-spin h-5 w-5 text-white absolute${
@@ -257,24 +258,21 @@ export default function Step9() {
                 }`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
-                viewBox="0 0 24 24"
-              >
+                viewBox="0 0 24 24">
                 <circle
                   className="opacity-25"
                   cx="12"
                   cy="12"
                   r="10"
                   stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
+                  strokeWidth="4"></circle>
                 <path
                   className="opacity-75"
                   fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
             </div>
-            <span className={`${send ? "opacity-0" : "opacity-1"}`}>
+            <span className={`text-white ${send ? "opacity-0" : "opacity-1"}`}>
               Angebote erhalten kostenlos & unverbindlich
             </span>
           </button>
