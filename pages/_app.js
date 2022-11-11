@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }) {
   const [calculatedDataAll, setCalculatedDataAll] = useState([]);
 const router=useRouter();
 console.log("router=======",router)
+
 useEffect(()=>{
 if(router.asPath==="/"){
   router.push("/1")
