@@ -2,7 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import AppContext from "../../Context/AppContext";
 
 export default function Step8() {
-  const { step, setStep, userData, setUserData ,calculatedDataAll , setCalculatedDataAll} = useContext(AppContext);
+  const {
+    step,
+    setStep,
+    userData,
+    setUserData,
+    calculatedDataAll,
+    setCalculatedDataAll,
+  } = useContext(AppContext);
 
   const values = {
     sauna: 1500,
@@ -48,67 +55,83 @@ export default function Step8() {
   };
 
   let calculatedData = [];
-  // {step === 8 && 
+  // {step === 8 &&
   // }
-  useEffect(()=>{
+  useEffect(() => {
     // {step === 8 &&
     setCalculatedDataAll(calculatedData);
-  // }
+    // }
+  }, [step]);
 
-  } , [step])
+  {
+    userData?.step6 &&
+      calculatedData.push(
+        "Ihr produzierter Solarstrom im Jahr",
+        Math.round(
+          ((data * 1.3) / 1000 / 0.38) *
+            0.4 *
+            (userData.step6 ? getNumber(userData.step6) : 0)
+        )
+      );
+  }
+  {
+    calculatedData.push(
+      "Zukünftiger jährlicher Stromverbrauch",
+      Math.round(data)
+    );
+  }
+  {
+    calculatedData.push(
+      "optimale Modulanzahl",
+      Math.round((data * 1.3) / 1000 / 0.38)
+    );
+  }
+  {
+    calculatedData.push(
+      "Dachfläche für empfohlene Autarkie ca in m²",
+      Math.round((data * 1.3) / 1000 / 0.38) * 2
+    );
+  }
+  {
+    calculatedData.push(
+      "Speicher",
+      userData.step7?.spei ? "true" : "false",
 
-{userData?.step6 && 
-    calculatedData.push("Ihr produzierter Solarstrom im Jahr",Math.round(
-      ((data * 1.3) / 1000 / 0.38) *
-        0.4 *
-        (userData.step6 ? getNumber(userData.step6) : 0)
-    ))
-    }
-    { calculatedData.push("Zukünftiger jährlicher Stromverbrauch",Math.round(data))} 
-    {calculatedData.push("optimale Modulanzahl",Math.round((data * 1.3) / 1000 / 0.38))}
-    {calculatedData.push("Dachfläche für empfohlene Autarkie ca in m²",(Math.round((data * 1.3) / 1000 / 0.38) * 2))}
-    {
-      calculatedData.push("Speicher" , userData.step7?.spei ? "true" : "false" , 
-      
-      "E-Mobility" , 
-      userData.step7?.mobility ? "true" : "false" ,  
-      (userData?.step7?.distance
+      "E-Mobility",
+      userData.step7?.mobility ? "true" : "false",
+      userData?.step7?.distance
         ? `(${(userData.step7?.distance * 20) / 100} kWh)`
-        : "")
-        ,
-        "Sauna",
-        userData.step7?.sauna ? "true" : "false" ,
-        (userData.step7?.sauna ? `(${values["sauna"]} kWh)` : ""),
-        "Pool",
-        userData.step7?.pool ? "true" : "false" ,
-        (userData.step7?.pool ? `(${values["pool"]} kWh)` : ""),
-        "Mähroboter",
-        userData.step7?.ma ? "true" : "false" ,
-        (userData.step7?.ma ? `(${values["ma"]} kWh)` : ""),
-        "Familienzuwachs",
-        userData.step7?.fa ? userData.step7?.fa : "false",
-        (userData.step7?.fa
-          ? `(${values["fa"] * (userData.step7.fa * 1)} kWh)`
-          : "") ,
-        "Saugroboter" ,
-        userData.step7?.sau ? "true" : "false" ,
-        (userData.step7?.sau
-          ? `(${values["sau"] * userData.step7.sau} kWh)`
-          : "") ,
-          "E-Bike" ,
-          userData.step7?.bike ? userData.step7?.bike : "false" ,
-          (userData.step7?.bike
-            ? `(${values["numBike"] * (userData.step7?.bike * 1)} kWh)`
-            : "") ,
-          "Klimaanlage" ,
-          userData.step7?.kli ? "true" : "false" ,
-          (userData.step7?.kli ? `(${values["kli"]} kWh)` : "") ,
-          "Homeoffice",
-          userData.step7?.home ? "true" : "false" ,
-          (userData.step7?.home ? `(${values["home"]} kWh)` : ""),
-
-      )
-    }
+        : "",
+      "Sauna",
+      userData.step7?.sauna ? "true" : "false",
+      userData.step7?.sauna ? `(${values["sauna"]} kWh)` : "",
+      "Pool",
+      userData.step7?.pool ? "true" : "false",
+      userData.step7?.pool ? `(${values["pool"]} kWh)` : "",
+      "Mähroboter",
+      userData.step7?.ma ? "true" : "false",
+      userData.step7?.ma ? `(${values["ma"]} kWh)` : "",
+      "Familienzuwachs",
+      userData.step7?.fa ? userData.step7?.fa : "false",
+      userData.step7?.fa
+        ? `(${values["fa"] * (userData.step7.fa * 1)} kWh)`
+        : "",
+      "Saugroboter",
+      userData.step7?.sau ? "true" : "false",
+      userData.step7?.sau ? `(${values["sau"] * userData.step7.sau} kWh)` : "",
+      "E-Bike",
+      userData.step7?.bike ? userData.step7?.bike : "false",
+      userData.step7?.bike
+        ? `(${values["numBike"] * (userData.step7?.bike * 1)} kWh)`
+        : "",
+      "Klimaanlage",
+      userData.step7?.kli ? "true" : "false",
+      userData.step7?.kli ? `(${values["kli"]} kWh)` : "",
+      "Homeoffice",
+      userData.step7?.home ? "true" : "false",
+      userData.step7?.home ? `(${values["home"]} kWh)` : ""
+    );
+  }
 
   useEffect(() => {
     if (userData.step2 && userData.step7) {
@@ -150,7 +173,6 @@ export default function Step8() {
                   0.4 *
                   (userData.step6 ? getNumber(userData.step6) : 0)
               )}{" "}
-             
               kWh
             </p>
           </div>
@@ -187,10 +209,10 @@ export default function Step8() {
               onClick={() => {
                 setStep(step - 1);
               }}
-              className="font-bold font-roboto px-10 py-2 border-[#737F38] border rounded-md text-[#737F38] hover:cursor-pointer transition-all ease-in-out duration-150 hover:bg-opacity-90 hover:shadow-md hover:shadow-[#ffc792] hover:bg-green-1 hover:text-white">
+              className="font-bold font-roboto px-10 py-2 border-[#000000] hover:border-green-1 border rounded-md text-[#000000] hover:border-green-1 hover:cursor-pointer transition-all ease-in-out duration-150 hover:bg-opacity-90 hover:shadow-md hover:shadow-[#ffc792] hover:bg-green-1 hover:text-white">
               Zurück
             </div>
-            
+
             <div
               onClick={() => {
                 setUserData({
@@ -253,7 +275,6 @@ export default function Step8() {
               <p className="relative text-sm flex">
                 {Math.round((data * 1.3) / 1000 / 0.38) * 2} m²
                 {/* {calculatedData.push("Dachfläche für empfohlene Autarkie ca in m²",(Math.round((data * 1.3) / 1000 / 0.38) * 2))} */}
-
               </p>
             </div>
             <div className="mt-5 flex justify-between">
@@ -406,7 +427,7 @@ export default function Step8() {
               onClick={() => {
                 setStep(step - 1);
               }}
-              className="font-bold font-roboto px-10 py-2 border-[#737F38] border rounded-md text-[#737F38] hover:cursor-pointer transition-all ease-in-out duration-150 hover:bg-opacity-90 hover:shadow-md hover:shadow-[#ffc792] hover:bg-green-1 hover:text-white">
+              className="font-bold font-roboto px-10 py-2 border-[#000000] hover:border-green-1 border rounded-md text-[#000000] hover:border-green-1 hover:cursor-pointer transition-all ease-in-out duration-150 hover:bg-opacity-90 hover:shadow-md hover:shadow-[#ffc792] hover:bg-green-1 hover:text-white">
               Zurück
             </div>
             <div

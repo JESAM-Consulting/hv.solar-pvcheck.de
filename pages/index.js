@@ -58,19 +58,18 @@ export default function Home() {
 
     return window.removeEventListener("resize", handleRezise);
   }, [dimension]);
-  
+
   useEffect(() => {
-    
     if (dimension < 900 && step != 10 && step != 0) {
       if (step == 9) {
         window.scroll({
-          top: 105,
+          top: 120,
           left: 0,
           behavior: "smooth",
         });
       } else {
         window.scroll({
-          top: 190,
+          top: 210,
           left: 0,
           behavior: "smooth",
         });
@@ -184,9 +183,7 @@ export default function Home() {
     }
 
     return () => {
-      router.events.off("routeChangeComplete", async () => {
-        
-      });
+      router.events.off("routeChangeComplete", async () => {});
     };
   }, [show, cancel, router.events]);
 
