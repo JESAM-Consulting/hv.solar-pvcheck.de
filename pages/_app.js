@@ -6,19 +6,25 @@ import AppContext from "../Context/AppContext";
 import Script from "next/script";
 import { useRouter } from "next/router";
 
+
 function MyApp({ Component, pageProps }) {
   const [step, setStep] = useState(0);
   const [userData, setUserData] = useState({});
   const [calculatedDataAll, setCalculatedDataAll] = useState([]);
-const router=useRouter();
-console.log("router=======",router)
+  const router = useRouter();
 
-useEffect(()=>{
-if(router.asPath==="/"){
-  router.push("/1")
-}
-},[router])
-// router = "/1"
+  console.log("!!! qq",pageProps, router && router?.query?.id);
+console.log('route111111r',router.query)
+
+console.log(router.query);
+  useEffect(()=>{
+    if(router?.asPath==="/"){
+      router.push("/1" )
+    }else{
+      router.push(router?.asPath.split("/")[1]||"/2" )
+    }
+    },[]) 
+
   return (
     <AppContext.Provider
       value={{
@@ -28,7 +34,8 @@ if(router.asPath==="/"){
         calculatedDataAll: calculatedDataAll,
         setCalculatedDataAll: setCalculatedDataAll,
         setUserData: setUserData,
-      }}>
+      }}
+    >
       <Script
         strategy="beforeInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}

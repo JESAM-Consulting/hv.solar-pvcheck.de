@@ -1,19 +1,23 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState, useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { sendForm } from "../global/sendForm";
 import { forEmail } from "../../config";
 import MyTips from "../MyTips";
 import AppContext from "../../Context/AppContext";
 import axios from "axios";
+import Router, { useRouter } from "next/router";
+import { data } from "../../Data";
 
 export default function Step9() {
   const myForm = useRef(null);
   const [isChecked, setIsChecked] = useState(false);
   const [send, setSend] = useState(false);
+  
 
-  const handleCheck = () => {
-    setIsChecked(!isChecked);
-  };
+
+
+  const getData = () => data.find((d) => d.ID === router.query.id);
+
 
   const {
     step,
@@ -131,8 +135,10 @@ export default function Step9() {
       interesse_finanzierung: `https://hv.solar-pvcheck.de/${1}`,
       dachform: userData.step3,
       art_heizung: userData.step5,
+
       // interesse_finanzierung
-      // leadherkunft: "https://www.pro.solar-pvcheck.de",
+      leadherkunft: getData()?.ID,
+      ekd_vertriebler_id: getData()?.varId,
       // Bemerkungen: calculatedDa,
     };
     await axios

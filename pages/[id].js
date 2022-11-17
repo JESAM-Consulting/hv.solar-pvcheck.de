@@ -19,11 +19,14 @@ import CookieForm from "../components/CookieForm";
 import disableScroll from "disable-scroll";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { data } from "../Data";
 
-export default function Home() {
+export default function Home(props) {
+  console.log('!!! props',props)
   const { step, setStep } = useContext(AppContext);
   const [index, setIndex] = useState(0);
   const router = useRouter();
+  console.log("!!! router", router, router?.query);
   const [path, setPath] = useState(true);
   const [openM, setOpenM] = useState(false);
 
@@ -183,11 +186,11 @@ export default function Home() {
     }
 
     return () => {
-        router.events.off("routeChangeComplete", async () => {});
-        };
-    
+      router.events.off("routeChangeComplete", async () => {});
+    };
   }, [show, cancel, router.events]);
-  const route1 = router.asPath === "/1" ? true : false;
+  const route1 = router?.query?.id ? true : false;
+
   return (
     <>
       {route1 && (
