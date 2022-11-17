@@ -20,6 +20,9 @@ export default function NavTop() {
     }
   }, [step]);
 
+
+
+
   const getData = () => data.find((d) => d.ID === router.query.id);
 
   return (
@@ -30,7 +33,7 @@ export default function NavTop() {
             if (router.asPath == "/") {
               setStep(0);
             } else {
-              router.push("/");
+              router.push(router?.asPath);
             }
           }}
           className="hover:cursor-pointer lg:ml-10  py-3 flex items-center"

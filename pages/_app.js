@@ -13,13 +13,9 @@ function MyApp({ Component, pageProps }) {
   const [calculatedDataAll, setCalculatedDataAll] = useState([]);
   const router = useRouter();
 
-  console.log("!!! qq",pageProps, router && router?.query?.id);
-console.log('route111111r',router.query)
-
-console.log(router.query);
   useEffect(()=>{
     if(router?.asPath==="/"){
-      router.push("/1" )
+      router.push("/801E70" )
     }else{
       router.push(router?.asPath.split("/")[1]||"/2" )
     }

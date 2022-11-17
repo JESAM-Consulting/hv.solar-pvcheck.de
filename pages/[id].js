@@ -22,11 +22,11 @@ import Link from "next/link";
 import { data } from "../Data";
 
 export default function Home(props) {
-  console.log('!!! props',props)
+  
   const { step, setStep } = useContext(AppContext);
   const [index, setIndex] = useState(0);
   const router = useRouter();
-  console.log("!!! router", router, router?.query);
+
   const [path, setPath] = useState(true);
   const [openM, setOpenM] = useState(false);
 

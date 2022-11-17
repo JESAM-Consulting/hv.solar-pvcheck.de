@@ -13,6 +13,8 @@ export default function Step9() {
   const [isChecked, setIsChecked] = useState(false);
   const [send, setSend] = useState(false);
   
+  const router = useRouter();
+  
 
 
 
@@ -41,6 +43,9 @@ export default function Step9() {
         "OiJKV1QiLCJub25jZSLCJhbGciOiJSUzI1NiIsIng1dCI6ImpTMVhvMU9XRGpfNTJ2YndHTmd2UU8yVnpNYyIsImtpZCI6ImpTMVhvMU9I6IjJFY0RuMHAtLW9YQU1vVnZtaDZYaEFNQ0lIcVBEMzRvaUppWm44cktXRGpfNTJ2YndHTmd2UU8yVnpNYyJ9feKq9lzfS9RoR4pWxajCpaLVk8EcQBGsymY0ki4",
     },
   };
+
+
+  
 
   // const calculatedDa =
   //   `${calculatedDataAll?.[0]}` +
@@ -188,8 +193,7 @@ export default function Step9() {
   return (
     <div data-show={step == 9 ? true : false} className="step">
       <h1 className="font-visby lg:text-3xl text-xl font-bold lg:max-w-4xl md:max-w-sm">
-        Erhalten Sie jetzt Ihr unverbindliches Angebot von Ihrem Fachberater Tim
-        Testverkäufer
+        Erhalten Sie jetzt Ihr unverbindliches Angebot von Ihrem Fachberater  {getData()?.Name}
       </h1>
       <form ref={myForm} onSubmit={handleSubmit(onSubmit)} className="  mt-7">
         <div className="flex lg:space-x-10 lg:flex-row flex-col lg:space-y-0 space-y-4">
