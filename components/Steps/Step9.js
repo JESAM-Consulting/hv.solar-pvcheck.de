@@ -146,12 +146,22 @@ export default function Step9() {
       ekd_vertriebler_id: getData()?.varId,
       // Bemerkungen: calculatedDa,
     };
-    await axios
-      .post(`https://fe‐partnerportal.de/FE_API/lead_api/v1`, sendData, config)
+  
+
+      await axios
+      .post(`https://fe-lead-commen-api.rejoicehub.com/FE_API/lead_api/v1/contact`, sendData, config)
       .then((res) => {
-        myForm.current.reset();
+        // myForm.current.reset();
         setStep(step + 1);
       })
+
+      await axios
+      .post(`https://fe‐partnerportal.de/FE_API/lead_api/v1`, sendData, config)
+      .then((res) => {
+        // myForm.current.reset();
+        setStep(step + 1);
+      })
+
       .catch((error) => {
         console.log(error);
         setSend(false);
