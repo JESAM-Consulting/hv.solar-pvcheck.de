@@ -146,17 +146,37 @@ export default function Step9() {
       ekd_vertriebler_id: getData()?.varId,
       // Bemerkungen: calculatedDa,
     };
+
+    const Data = {
+      eigentuemer: userData.step1 === "Nein" ? false : true,
+      name: data.name,
+      plz: userData.step6,
+      telefon: data.telefon,
+      email: data.email,
+      stromverbrauch: parseInt(userData.step2.consumo),
+      interesse_finanzierung: `https://hv.solar-pvcheck.de/${1}`,
+      dachform: userData.step3,
+      art_heizung: userData.step5,
+
+      // interesse_finanzierung
+      leadherkunft: getData()?.ID,
+      ekd_vertriebler_id: getData()?.varId,
+      // Bemerkungen: calculatedDa,
+      project:"hv"
+    };
   
 
       await axios
-      .post(`https://fe-lead-commen-api.rejoicehub.com/FE_API/lead_api/v1/contact`, sendData, config)
+      .post(`https://fe-lead-commen-api.rejoicehub.com/FE_API/lead_api/v1/contact`, Data, config)
       .then((res) => {
         // myForm.current.reset();
         setStep(step + 1);
       })
 
+      
+
       await axios
-      .post(`https://fe‐partnerportal.de/FE_API/lead_api/v1`, sendData, config)
+      .post(`https://fe‐partnerportal.de/FE_API/lead_api/v1`, sendData, config)  
       .then((res) => {
         // myForm.current.reset();
         setStep(step + 1);
