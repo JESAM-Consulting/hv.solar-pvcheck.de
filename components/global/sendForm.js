@@ -6,7 +6,7 @@ const SendForm = async (datos) => {
   const url = `/api/form`;
 
   let bodyData = qs.stringify(datos);
-
+console.log('urlssss',url)
   try {
     const respuesta_api = await axios.post(url, bodyData, {
       headers: {
