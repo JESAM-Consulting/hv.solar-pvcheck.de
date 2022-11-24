@@ -15,6 +15,10 @@ export default function Step9() {
 
   const router = useRouter();
 
+  const routeid = window.location.pathname; 
+
+  console.log("routeid" , routeid)
+
   const getData = () => data.find((d) => d.ID === router.query.id);
 
   const { step, setStep, userData, setUserData, calculatedDataAll } =
@@ -115,39 +119,39 @@ export default function Step9() {
   //   ` ` +
   //   `${calculatedDataAll?.[36]}`;
 
+  console.log("userData", userData , getData())
+
   const onSubmit = async (data) => {
     setSend(true);
 
     const sendData = {
       eigentuemer: userData.step1 === "Nein" ? false : true,
-      name_komplett: data.name,
+      vorname: data.name,
       plz: userData.step6,
       telefon: data.telefon,
       email: data.email,
       stromverbrauch: parseInt(userData.step2.consumo),
-      interesse_finanzierung: `https://hv.solar-pvcheck.de/${1}`,
+      interesse_finanzierung: userData.step4,
       dachform: userData.step3,
       art_heizung: userData.step5,
-
-      // interesse_finanzierung
-      leadherkunft: getData()?.ID,
+      Leadherkunft: getData()?.ID,
+      // leadherkunft: getData()?.ID,
       ekd_vertriebler_id: getData()?.varId,
       // Bemerkungen: calculatedDa,
     };
 
     const Data = {
       eigentuemer: userData.step1 === "Nein" ? false : true,
-      name: data.name,
+      vorname: data.name,
       plz: userData.step6,
       telefon: data.telefon,
       email: data.email,
       stromverbrauch: parseInt(userData.step2.consumo),
-      interesse_finanzierung: `https://hv.solar-pvcheck.de/${1}`,
+      interesse_finanzierung: userData.step4,
       dachform: userData.step3,
       art_heizung: userData.step5,
-
-      // interesse_finanzierung
       leadherkunft: getData()?.ID,
+      // leadherkunft: getData()?.ID,
       ekd_vertriebler_id: getData()?.varId,
       // Bemerkungen: calculatedDa,
       project: "hv",
