@@ -44,7 +44,7 @@ export default function Datenschutz() {
           <div className="datenschutz-first-text">
             <p className="mb-3">
               Hier finden Sie unsere Informationen zum Datenschutz für:
-              <a href="https://www.solar-pvcheck.de/" target="_blank">
+              <a href="https://www.solar-pvcheck.de/" target="_blank"  rel="noreferrer" >
                 https://www.solar-pvcheck.de/
               </a>
             </p>
@@ -107,7 +107,7 @@ export default function Datenschutz() {
               <a
                 className="new-orange-text"
                 href="http://www.patronus-datenservice.de/"
-                target="_blank"
+                target="_blank"  rel="noreferrer"
               >
                 {" "}
                 www.patronus-datenservice.de
@@ -208,12 +208,12 @@ export default function Datenschutz() {
               Nähere Informationen zu AWS und zum Datenschutz finden Sie unter
               <a
                 href="https://aws.amazon.com/de/compliance/eu-data-protection/"
-                target="_blank"
+                target="_blank"  rel="noreferrer"
               >
                  https://aws.amazon.com/de/compliance/eu-data-protection/ sowie
               </a>{" "}
               unter{" "}
-              <a href="https://aws.amazon.com/de/privacy/" target="_blank">
+              <a href="https://aws.amazon.com/de/privacy/" target="_blank"  rel="noreferrer">
                 https://aws.amazon.com/de/privacy/
               </a>
               .
@@ -384,7 +384,7 @@ export default function Datenschutz() {
             <a
               className="font-medium text-base mb-3 block"
               href="https://policies.google.com/privacy"
-              target="_blank"
+              target="_blank"  rel="noreferrer"
             >
               https://policies.google.com/privacy.
             </a>
@@ -396,7 +396,7 @@ export default function Datenschutz() {
               Opt-Out-Plugin:{" "}
               <a
                 href="http://tools.google.com/dlpage/gaoptout?hl=de"
-                target="_blank"
+                target="_blank"  rel="noreferrer"
               >
                 http://tools.google.com/dlpage/gaoptout?hl=de
               </a>
@@ -408,7 +408,7 @@ export default function Datenschutz() {
             <p className="font-medium text-base mb-3">
               <a
                 href="https://myadcenter.google.com/?sasb=true"
-                target="_blank"
+                target="_blank"  rel="noreferrer"
               >
                 https://adssettings.google.com/authenticated.
               </a>
@@ -564,12 +564,12 @@ export default function Datenschutz() {
             </p>
             <p className="font-medium text-base mb-3">
             Mehr über die Werbefunktionen erfahren Sie auf 
-            <a href="https://support.google.com/analytics/answer/3450482?hl=de_AT&utm_id=ad" target="_blank">https://support.google.com/analytics/answer/3450482?hl=de_AT&utm_id=ad</a>.
+            <a href="https://support.google.com/analytics/answer/3450482?hl=de_AT&utm_id=ad" target="_blank"  rel="noreferrer">https://support.google.com/analytics/answer/3450482?hl=de_AT&utm_id=ad</a>.
             </p>
             <p className="font-medium text-base mb-3">
               <mark>
               Sie können die Nutzung der Aktivitäten und Informationen Ihres Google Kontos unter “Einstellungen für Werbung” auf 
-              <a href="https://myadcenter.google.com/?sasb=true" target="_blank">
+              <a href="https://myadcenter.google.com/?sasb=true" target="_blank"  rel="noreferrer">
               https://adssettings.google.com/authenticated
               </a> per Checkbox beenden.
               </mark>
